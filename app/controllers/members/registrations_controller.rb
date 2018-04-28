@@ -22,6 +22,7 @@ class Members::RegistrationsController < Devise::RegistrationsController
   # PUT /resource
    def update
      super
+   end
 
   # DELETE /resource
    def destroy
