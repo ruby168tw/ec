@@ -1,10 +1,15 @@
  <h1>Tim and Ruby`s Shopping Store</h1>
-
+ <% if user_signed_in? %>
+ <%= link_to "會員登出", destroy_user_session_path, method: :delete %>
+    <% elsif member_signed_in? %>
+ <%= link_to "管理者登出", destroy_member_session_path, method: :delete %>
+ <% else %>
     <div>
     	<%= link_to "會員登入", new_user_session_path %>
-    </div>>  
+    </div>  
 
     <div>
     	<%= link_to "管理者登入", new_member_session_path %>
-    </div>>    
-    
+    </div>  
+
+    <% end %>    
