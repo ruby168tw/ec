@@ -1,0 +1,20 @@
+  <h1>編輯產品</h1>
+
+<%= form_for @product, :url => { :controller => 'product', :action => 'update' } do |f| %>
+    <div>
+    <%= f.label :name, "名稱" %>
+    <%= f.text_field :name %>
+  </div>
+
+    <div>
+    <%= f.label :price, "價格" %>
+     <%= f.text_field :price %>
+   </div>
+
+    <div>
+    <%= f.label :description, "敘述" %>
+    <%= f.text_area :description %>
+  </div>
+
+    <%= f.submit "更新" %>
+<% end %>

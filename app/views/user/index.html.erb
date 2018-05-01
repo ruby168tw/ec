@@ -1,0 +1,17 @@
+<%= form_tag user_index_path, :method => :get do %>
+<% end %>
+
+<ul>
+<% @user.each do |user| %>
+  <li>
+    <%= user.name %>
+    <%= link_to "Show", user_path(user) %>
+    <%= link_to 'Edit', edit_user_path(user) %>
+    <%= link_to 'Delete', user_path(user), :method => :delete, :data => { :confirm => "確定刪除?" } %>
+    
+  </li>
+<% end %>
+</ul>
+
+<%= link_to 'New user', new_user_path %>
+<%= link_to '返回首頁', root_path %>

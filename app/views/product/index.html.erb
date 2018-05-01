@@ -7,10 +7,11 @@
     <%= product.name %>
     <%= link_to "Show", product_path(product) %>
     <%= link_to 'Edit', edit_product_path(product) %>
-    <%= link_to 'Delete', product_path(product), :method => :delete, :data => { :confirm => "Are you sure?" } %>
+    <%= link_to 'Delete', product_path(product), :method => :delete, :data => { :confirm => "確定刪除?" } %>
     
   </li>
 <% end %>
 </ul>
 
 <%= link_to 'New product', new_product_path %>
+<%= link_to '返回首頁', root_path %>

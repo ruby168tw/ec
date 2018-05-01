@@ -1,6 +1,16 @@
-<%= @product.name %>
-<%= @product.price %>
-<%= @product.description %>
+
+
+<div>
+	產品名稱: <%= @product.name %>
+</div>
+
+<div>
+產品價格: <%= @product.price %>
+</div>
+
+<div>
+產品敘述: <%= @product.description %>
+</div>
 
 
 <p><%= link_to '回到產品目錄', product_index_path %></p>

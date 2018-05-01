@@ -1,0 +1,20 @@
+  <h1>新增會員</h1>
+
+<%= form_for @user, :url => { :controller => 'user', :action => 'create' } do |f| %>
+    <div>
+    <%= f.label :name, "名稱" %>
+    <%= f.text_field :name %>
+  </div>
+
+    <div>
+    <%= f.label :email, "email" %>
+     <%= f.text_field :email %>
+   </div>
+
+    <div>
+    <%= f.label :password, "password" %>
+    <%= f.text_field :password %>
+  </div>
+
+    <%= f.submit "新增" %>
+<% end %>
