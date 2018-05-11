@@ -25,6 +25,15 @@ def create
 	end
 end
 
+def motify
+	@product = Product.category
+
+	@product.save
+		#成功
+	redirect_to categories_path, notice: "更新分類成功"
+end
+
+
 def edit
 	@product = Product.find_by(id: params[:id])
 end
@@ -53,7 +62,7 @@ private
 end
 
     def product_params
-    	params.require(:product).permit(:name, :price, :description)
+    	params.require(:product).permit(:name, :price, :description, :category_id)
     end
 
 end

@@ -12,5 +12,7 @@
 產品敘述: <%= @product.description %>
 </div>
 
+<p>分類: <%= @product.category.try(:name) %></p>
+
 
 <p><%= link_to '回到產品目錄', product_index_path %></p>

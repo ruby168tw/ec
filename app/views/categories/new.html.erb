@@ -1,0 +1,10 @@
+  <h1>新增分類</h1>
+
+<%= form_for @categories, :url => { :controller => 'categories', :action => 'create' } do |f| %>
+    <div>
+    <%= f.label :name, "名稱" %>
+    <%= f.text_field :name %>
+  </div>
+
+    <%= f.submit "新增" %>
+<% end %>

@@ -1,6 +1,8 @@
   <h1>編輯產品</h1>
 
 <%= form_for @product, :url => { :controller => 'product', :action => 'update' } do |f| %>
+分類: <%= render :partial => 'form', :locals => { :f => f } %>
+
     <div>
     <%= f.label :name, "名稱" %>
     <%= f.text_field :name %>
@@ -15,6 +17,8 @@
     <%= f.label :description, "敘述" %>
     <%= f.text_area :description %>
   </div>
+
+
 
     <%= f.submit "更新" %>
 <% end %>

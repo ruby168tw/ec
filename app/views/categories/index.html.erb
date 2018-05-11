@@ -1,0 +1,20 @@
+<%= form_tag categories_path, :method => :get do %>
+<% end %>
+
+<ul>
+<% @categories.each do |category| %>
+  <li>
+    <%= category.name %>
+    <%= link_to "Show", category_path(category) %>
+    <%= link_to 'Edit', edit_category_path(category) %>
+    <%= link_to 'Delete', category_path(category), :method => :delete, :data => { :confirm => "確定刪除?" } %>
+    
+
+    
+  </li>
+<% end %>
+</ul>
+
+<%= paginate @categories %>
+<%= link_to 'New Category', new_category_path %>
+<%= link_to '返回首頁', root_path %>

@@ -16,5 +16,8 @@
 <% end %>
 </ul>
 
+<% if member_signed_in? %>
 <%= link_to 'New product', new_product_path %>
+<% end %>
+<%= paginate @product %>
 <%= link_to '返回首頁', root_path %>
