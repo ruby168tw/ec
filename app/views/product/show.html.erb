@@ -1,7 +1,7 @@
 
 
 <div>
-	產品名稱: <%= @product.name %>
+	產品名稱: <%= @products.name %>
 </div>
 
 <div>
@@ -12,7 +12,7 @@
 產品敘述: <%= @product.description %>
 </div>
 
-<p>分類: <%= @product.category.try(:name) %></p>
+<p>分類: <%= @product.category.name %></p>
 
 
 <p><%= link_to '回到產品目錄', product_index_path %></p>

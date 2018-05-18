@@ -1,7 +1,20 @@
 <div>
-	分類名稱: <%= @categories.name %>
+	分類名稱: <% @page_title %>
 </div>
 
-產品列表:
+<ul>
+<% @products.each do |product| %>
+  <li>
+    <%= product.name %>
+    <%= link_to 'Edit', edit_product_path(product) %>
+    <%= link_to 'Delete', product_path(product), :method => :delete, :data => { :confirm => "確定刪除?" } %>
+    
+
+    
+  </li>
+<% end %>
+</ul>
+
+
 
 <p><%= link_to '回到分類目錄', categories_path %></p>

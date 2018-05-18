@@ -1,5 +1,6 @@
 class CategoriesController < ApplicationController
 	before_action :set_categories, :only => [ :show, :edit, :update, :destroy]
+	
     
 	def index
   @categories = Category.page(params[:page]).per(5)
@@ -7,6 +8,8 @@ end
 
 def show
     @page_title = @categories.name
+    @products = @categories.products
+    p "testestsetstse"  
 	end
 
 def new
@@ -46,9 +49,7 @@ def destroy
 	redirect_to categories_path, notice: "分類已刪除"
 end
 
-def load_product_name
-	request.product.all
-end
+
 
 private
 
@@ -60,4 +61,5 @@ end
     	params.require(:category).permit(:name)
     end
 
+  
 end
