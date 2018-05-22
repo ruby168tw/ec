@@ -10,7 +10,7 @@ def show
     @page_title = @categories.name
     @products = @categories.products
     p "testestsetstse"  
-	end
+end
 
 def new
 	@categories = Category.new
