@@ -1,6 +1,6 @@
   <h1>編輯分類</h1>
 
-<%= form_for @categories, :url => { :controller => 'categories', :action => 'update' } do |f| %>
+<%= form_for @category, :url => { :controller => 'categories', :action => 'update' } do |f| %>
     <div>
     <%= f.label :name, "名稱" %>
     <%= f.text_field :name %>

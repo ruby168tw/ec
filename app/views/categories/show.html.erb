@@ -1,19 +1,23 @@
 <div>
-	分類名稱: <% @page_title %>
+	分類名稱: <%= @page_title %>
 </div>
 
 <ul>
 <% @products.each do |product| %>
   <li>
     <%= product.name %>
-    <%= link_to 'Edit', edit_product_path(product) %>
-    <%= link_to 'Delete', product_path(product), :method => :delete, :data => { :confirm => "確定刪除?" } %>
+    <%= form_for @category, :url => { :controller => 'categories', :action => 'category_update' } do |f| %>
+    分類: <%= render :partial => 'form', :locals => { :f => f } %>
+    <%= f.submit "更新" %>
+    <% end %>
+    
     
 
     
   </li>
 <% end %>
 </ul>
+
 
 
 

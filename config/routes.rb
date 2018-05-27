@@ -3,6 +3,11 @@ Rails.application.routes.draw do
    root "home#index"
    devise_for :users, controllers: { sessions: 'users/sessions' }
    devise_for :members, controllers: { sessions: 'members/sessions' }
-   resources :product, :user, :member, :categories
+   resources :user, :member, :product 
+   resources :categories do
+   	member do
+   		patch :category_update
+   	end
+   end
    
 end
