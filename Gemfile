@@ -58,3 +58,4 @@ gem 'devise'
 
 #分頁外掛
 gem "kaminari"
+

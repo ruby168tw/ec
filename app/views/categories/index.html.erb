@@ -2,7 +2,7 @@
 <% end %>
 
 <ul>
-<% @categories.each do |category| %>
+<% @category.each do |category| %>
   <li>
     <%= category.name %>
     <%= link_to "Show", category_path(category) %>
@@ -15,6 +15,6 @@
 <% end %>
 </ul>
 
-<%= paginate @categories %>
+<%= paginate @category %>
 <%= link_to 'New Category', new_category_path %>
 <%= link_to '返回首頁', root_path %>
