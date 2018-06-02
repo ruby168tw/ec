@@ -9,10 +9,12 @@ Rails.application.routes.draw do
    		patch :category_update
    	end
    end
+
    resource :cart, only:[:show, :destroy] do
       collection do
         post :add, path:'add/:id'
       end
     end
+
    
 end
