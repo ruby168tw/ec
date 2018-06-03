@@ -9,7 +9,6 @@ end
 def show
     @page_title = @category.name
     @products = @category.products
-    p "testestsetstse"  
 end
 
 def new
@@ -44,9 +43,8 @@ def update
 end
 
 def category_update
-	@product = Product.find_by(id: params[:category_id])
-    p Product.find_by(id: params[:category_id])
-	@product.update(product_params)
+	@product = Product.find(params["product"][:id])
+    @product.update(product_params)
 		#成功
 		redirect_to categories_path, notice: "更新分類成功"
 end

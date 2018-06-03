@@ -5,9 +5,11 @@
 <ul>
 <% @products.each do |product| %>
   <li>
-    <%= product.name %>
-    <%= form_for @category, :url => { :controller => 'categories', :action => 'category_update' } do |f| %>
-    分類: <%= render :partial => 'form', :locals => { :f => f } %>
+    <%= link_to product.name, product_path(product) %>
+    <%= form_for product, :url => { :controller => 'categories', :action => 'category_update' } do |f| %>
+    <%= f.hidden_field :id %>
+    分類: <%= f.collection_select(:category_id, Category.all, :id, :name) %>
+
     <%= f.submit "更新" %>
     <% end %>
     
