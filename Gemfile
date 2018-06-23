@@ -59,3 +59,4 @@ gem 'devise'
 #分頁外掛
 gem "kaminari"
 
+gem 'sprockets', '~>3.7.2'
