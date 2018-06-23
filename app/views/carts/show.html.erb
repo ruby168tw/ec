@@ -1,6 +1,8 @@
  <h1>購物車</h1>
 
-  <table>
+ <%= link_to "清空購物車", cart_path, method: :delete %>
+
+    <table>
     <thead>
       <tr>
         <td>商品名稱</td>
@@ -27,5 +29,4 @@
   </table>
 
   <%= link_to '繼續選購', product_index_path %>
-  <%= link_to '結帳', cart_path, method: :delete %>
-  <%= link_to '返回首頁', root_path %>
+  <%= link_to '結帳', '#' %>

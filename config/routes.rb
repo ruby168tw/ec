@@ -3,7 +3,7 @@ Rails.application.routes.draw do
    root "home#index"
    devise_for :users, controllers: { sessions: 'users/sessions' }
    devise_for :members, controllers: { sessions: 'members/sessions' }
-   resources :user, :member, :product 
+   resources :user, :member, :product, :orders 
    resources :categories do
    	member do
    		patch :category_update
@@ -11,10 +11,11 @@ Rails.application.routes.draw do
    end
 
    resource :cart, only:[:show, :destroy] do
-      collection do
-        post :add, path:'add/:id'
-      end
-    end
+   	collection do
+   		post :add, path: 'add/:id'
+   	end
+   end
+   
 
    
 end

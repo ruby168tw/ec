@@ -1,5 +1,8 @@
 module CartsHelper
+
+	#from_hash此方法在cart.rb中
 	def current_cart
-      @cart ||= Cart.form_hash(session[:cart9487])
-    end
+		@cart ||= Cart.from_hash(session[Cart::SessionKey])
+	end
+
 end
