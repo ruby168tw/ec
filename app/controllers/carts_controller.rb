@@ -16,7 +16,7 @@ class CartsController < ApplicationController
 		#serialize此方法在cart.rb中
 		session[Cart::SessionKey] = current_cart.serialize
 
-		redirect_to product_index_path, notice: "已加入購物車"
+		redirect_to product_index_path, notice: "#{Product.find(params[:id]).name} 已加入購物車"
 	end
 
     #清空購物車

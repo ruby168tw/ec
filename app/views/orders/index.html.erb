@@ -1,0 +1,8 @@
+<ul>
+<% @orders.each do |order| %>
+  <li>
+    <%= order.sn %>
+    <%= link_to "Show", order_path(order) %>
+     </li>
+<% end %>
+</ul>

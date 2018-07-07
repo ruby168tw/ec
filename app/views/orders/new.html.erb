@@ -1,8 +1,30 @@
- <h1>購物車</h1>
+  <h1>購物訂單</h1>
 
- <%= link_to "清空購物車", cart_path, method: :delete %>
+<%= form_for @order, :url => { :controller => 'orders', :action => 'create' } do |f| %>
 
-    <table>
+<div>
+	<%= f.label :sn, "訂單編號" %>
+	<%= Time.now.strftime("%Y%m%d%H%M%S%L") << (0..9).to_a.shuffle.join %>
+</div>
+
+<div>
+    <%= f.label :name, "姓名" %>
+    <%= f.text_field :name %>
+</div>
+
+<div>
+    <%= f.label :phone, "電話" %>
+    <%= f.text_field :phone %>	
+</div>
+
+<div>
+	<%= f.label :address, "地址" %>
+    <%= f.text_field :address %>
+</div>
+
+
+
+<table>
     <thead>
       <tr>
         <td>商品名稱</td>
@@ -28,5 +50,8 @@
     </tfoot>
   </table>
 
-  <%= link_to '繼續選購', product_index_path %>
-  <%= link_to '結帳', new_order_path %>
+
+
+
+    <%= f.submit "匯款" %>
+<% end %>
