@@ -1,7 +1,7 @@
 
 
 <div>
-  訂購人: <%= @order.name %>
+  訂購人: <%= @order.buyer %>
 </div>
 
 <div>
@@ -17,26 +17,23 @@
       <tr>
         <td>商品名稱</td>
         <td>數量</td>
-        <td>單價</td>
         <td>小計</td>
       </tr>
     </thead>
     <tbody>
-      <% current_cart.items.each do |item| %>
+      <% @order_items.each do |item| %>
         <tr>
-          <td><%= item.product.name %></td>
-          <td><%= item.quantity %></td>
-          <td><%= item.product.price %></td>
+          <td><%= item.productname %></td>
+          <td><%= item.amount %></td>
           <td><%= item.price %></td>
+          
         </tr>
       <% end %>
     </tbody>
     <tfoot>
-    <tr>
-      <td colspan="3">總計</td>
-      <td><%= current_cart.total_price %></td>
+    
     </tfoot>
   </table>
 
 
-<p><%= link_to "回上一頁", :back %></p>
+<%= link_to '返回首頁', root_path %>

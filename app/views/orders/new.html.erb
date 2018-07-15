@@ -4,12 +4,12 @@
 
 <div>
 	<%= f.label :sn, "訂單編號" %>
-	<%= Time.now.strftime("%Y%m%d%H%M%S%L") << (0..9).to_a.shuffle.join %>
+	<%= f.text_field :sn, :value => Time.now.strftime("%Y%m%d%L") << (0..9).to_a.shuffle.join %> (請勿修改!)
 </div>
 
 <div>
-    <%= f.label :name, "姓名" %>
-    <%= f.text_field :name %>
+    <%= f.label :buyer, "訂購人" %>
+    <%= f.text_field :buyer %>
 </div>
 
 <div>
@@ -22,7 +22,7 @@
     <%= f.text_field :address %>
 </div>
 
-
+<%= f.hidden_field :user_id, :value => current_user.id %>
 
 <table>
     <thead>

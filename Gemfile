@@ -60,3 +60,6 @@ gem 'devise'
 gem "kaminari"
 
 gem 'sprockets', '~>3.7.2'
+
+#A session store backed by an Active Record class. 
+gem 'activerecord-session_store'
