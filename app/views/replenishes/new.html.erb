@@ -1,0 +1,17 @@
+<%= form_for @replenish, :url => { :controller => 'replenish', :action => 'create' } do |f| %>
+
+<% @product.each do |product| %>
+<% if product.safetystock >= product.instock? %>
+<% product.name %>
+<% product.instock %>
+<% product.safetystock %>
+
+   <div>
+    <%= f.label :replenish, "補貨" %>
+    <%= f.text_field :replenish %>
+  </div>
+  <% end %>
+  <% end %>
+  <%= f.submit "提交" %>
+  <% end %>
+<%= link_to '返回首頁', root_path %>

@@ -14,5 +14,15 @@
 
 <p>分類: <%= @product.category.name %></p>
 
+<% if member_signed_in? %>
+<div>
+目前庫存量: <%= @product.instock %>
+</div>
+
+<div>
+安全庫存量: <%= @product.safetystock %>
+</div>
+<% end %>
+
 
 <p><%= link_to '回到產品目錄', product_index_path %></p>

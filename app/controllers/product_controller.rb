@@ -7,7 +7,9 @@ end
 
 def show
     @page_title = @product.name
-	end
+end
+
+
 
 def new
 	@product = Product.new
@@ -54,7 +56,7 @@ private
 end
 
     def product_params
-    	params.require(:product).permit(:name, :price, :description, :category_id)
+    	params.require(:product).permit(:name, :price, :description, :category_id, :instock, :safetystock)
     end
 
 end

@@ -3,7 +3,9 @@ Rails.application.routes.draw do
    root "home#index"
    devise_for :users, controllers: { sessions: 'users/sessions' }
    devise_for :members, controllers: { sessions: 'members/sessions' }
-   resources :user, :member, :product, :orders 
+   resources :user, :member, :orders, :replenishes, :product
+
+
    resources :categories do
    	member do
    		patch :category_update

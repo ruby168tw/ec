@@ -9,8 +9,10 @@
 
     <% if user_signed_in? %>
     <%= link_to "buy", add_cart_path(product), method: "post" %>
+    
     <% end %>
          <% if member_signed_in? %>
+         
         <%= link_to 'Edit', edit_product_path(product) %>
         <%= link_to 'Delete', product_path(product), :method => :delete, :data => { :confirm => "確定刪除?" } %>
     <% end %>
