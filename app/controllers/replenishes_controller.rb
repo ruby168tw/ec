@@ -1,14 +1,60 @@
 class ReplenishesController < ApplicationController
 
 	def new
+
+		@products = Product.where( "safetystock >= instock")
+
+		p "aaa"
+		p @products
+		p "bbb"
+
 		@replenish = Replenish.new
-		@product = Replenish.find_by(params[:product_id])
 	end
 
+
+	
 	def create
-		@replenish = Replenish.new
-		@instock = Product.find_by(id, params[:id]).instock.to_s + @replenish.to_s
-		@instock.save
+
+		@products = Product.where( "safetystock >= instock")
+		@replenish = Replenish.new(replenish_params)
 		@replenish.save
+
+		#p "ccc"
+		#p @product
+		#p "ddd"
+		#p @products
+		#p "eee"
+		#p @product.instock
+		#p "fff"
+		#p @products.instock
+		#p "ggg"
+
+		@products.each do |product|
+			@instock = product.instock
+			@instock = product.instock + @replenish.replenish
+			@instock.update
+		end
+
+		
 	end
+
+	private
+
+	def replenish_params
+    	params.require(:replenish).permit(:product_id, :replenish)
+    end
+
+    def product_params
+    	params.require(:product).permit(:instock, :name, :safetystock)
+    end
+
 end
+
+
+
+
+
+
+
+
+		
