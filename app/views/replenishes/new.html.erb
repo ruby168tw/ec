@@ -1,23 +1,26 @@
+<%= form_tag replenishes_path(@replenish), :method => :post do %>
+
+    <% @products.each do |product| %>
+
+        商品名稱<%= product.name %>
+        目前庫存量<%= product.instock %>
+       安全庫存量<%= product.safetystock %>
 
 
-<% @products.each do |product| %>
-
-<% product.name %>
-<% product.instock %>
-<% product.safetystock %>
-
-<%= form_with scope: :replenish, url: replenishes_path, local: true do |f| %>
-<%= f.hidden_field :product_id, :value => product.id %>
 
 
-   <div>
-    <%= f.label :replenish, "補貨" %>
-    <%= f.text_field :replenish %>
-  </div>
-  <%= f.submit "提交" %>
-  <% end %>
+       <div>
+        <%= label :add, "補貨" %>
+        <%= text_field_tag "add[#{product.id}]" %>
+      </div>
+
+
   
-  <% end %>
+    <% end %>
+
+  <%= submit_tag "提交" %>
+
+<% end %>
   
 <%= link_to '返回首頁', root_path %>
 

@@ -17,6 +17,15 @@
     <%= f.text_area :description %>
   </div>
 
+    <div>
+    <%= f.label :instock, "目前庫存量" %>
+    <%= f.text_area :instock %>
+    </div>
+
+    <div>
+    <%= f.label :safetystock, "安全庫存量" %>
+    <%= f.text_area :safetystock %>
+    </div>
 
 
     <%= f.submit "新增" %>

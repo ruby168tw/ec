@@ -33,8 +33,21 @@ class OrdersController < ApplicationController
        	@order_item.order_id = @order.id
        	    
         @order_item.save
+		
+		@product = Product.find_by(:id => @order_item.product_id)
+		p "*****"
+		p @product
+		p "*****"
+		p @product.instock
+		@product.instock = @product.instock - @order_item.amount
+		p "*****"
+		p @product.instock
+		@product.save
+		
+		end
+
+
         
-        end
         
         session[Cart::SessionKey] = nil
 
@@ -54,7 +67,11 @@ class OrdersController < ApplicationController
 
 	def order_params
     	params.require(:order).permit(:sn, :user_id, :buyer, :phone, :address, :paid_status, :shipping_status)
-    end
+	end
+	
+	def product_params
+		params.require(:product).permit(:id, :instock)
+	end
 
     
 end
